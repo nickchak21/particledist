@@ -1,5 +1,3 @@
-# Example Package
+# particledist
 
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+This is a package for analyzing event mass distributions and automating the search for new particles.
