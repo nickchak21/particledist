@@ -6,15 +6,13 @@ Home-page: https://github.com/nickchak21/particledist
 Author: Nick Chakraborty
 Author-email: nc165@duke.edu
 License: UNKNOWN
-Description: # Example Package
+Description: # particledist
         
-        This is a simple example package. You can use
-        [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-        to write your content.
+        This is a package for analyzing event mass distributions and automating the search for new particles.
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.6
+Requires-Python: >=3.5
 Description-Content-Type: text/markdown
