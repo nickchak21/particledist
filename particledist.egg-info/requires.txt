@@ -1,0 +1,6 @@
+numpy
+matplotlib
+scikit-learn
+energyflow
+h5py
+POT
