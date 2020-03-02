@@ -14,8 +14,8 @@ class MassDistribution:
 
     def divide_mass_bins(self, mass_bin_size, cutoff_jets):
         mass_ranges = []
-        max_mass = max(mass_list)
-        min_mass = min(mass_list)
+        max_mass = max(self.mass_list)
+        min_mass = min(self.mass_list)
         previous_mass = min_mass
         for current_mass in range(min_mass + mass_bin_size, max_mass, mass_bin_size):
             mass_ranges.append([previous_mass, current_mass])
