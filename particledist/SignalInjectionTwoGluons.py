@@ -14,7 +14,7 @@ class SignalInjectionTwoGluons:
         self.event_list = event_list
         self.mass_bin_size = mass_bin_size
 
-    def filter_gluon_events():
+    def filter_gluon_events(self):
         indexes_gluon_events = []
 
         index = 0
@@ -27,12 +27,12 @@ class SignalInjectionTwoGluons:
         self.event_list_2_gluons = [self.event_list[j] for j in indexes_gluon_events]
         
 
-    def sort_gluon_events():
+    def sort_gluon_events(self):
         gluon_events = new MassDistribution(self.mass_list_2_gluons, self.event_list_2_gluons)
         gluon_events.divide_mass_bins(self.mass_bin_size, 0)
         self.event_mass_2_gluons_bins = gluon_events.event_mass_bins
 
-    def get_gluon_events_in_bin(index):
+    def get_gluon_events_in_bin(self, index):
         return self.event_mass_2_gluons_bins[index]
 
     

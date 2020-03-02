@@ -10,7 +10,7 @@ class PFNDist:
     def __init__(self, padded_jet_arrays):
         self.padded_jet_arrays = padded_jet_arrays
 
-    def generate_AUCs(train_size, test_size):
+    def generate_AUCs(self, train_size, test_size):
         AUC_scores = []
         for i in range(padded_jet_arrays.length - 1):
             auc = PFN_AUC_calculation(self.padded_jet_arrays[i], self.padded_jet_arrays[i+1],

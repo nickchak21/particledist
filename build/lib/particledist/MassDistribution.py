@@ -12,7 +12,7 @@ class MassDistribution:
         self.event_list = event_list
         self.mass_list = mass_list
 
-    def divide_mass_bins(mass_bin_size, cutoff_jets):
+    def divide_mass_bins(self, mass_bin_size, cutoff_jets):
         mass_ranges = []
         max_mass = max(mass_list)
         min_mass = min(mass_list)
@@ -64,10 +64,10 @@ class MassDistribution:
             i += 1
 
 
-    def get_mass_ranges():
+    def get_mass_ranges(self):
         return self.mass_ranges
 
-    def extract_jets_into_mass_bins():
+    def extract_jets_into_mass_bins(self):
         self.jet_mass_bins = []
 
         i = 0
@@ -78,7 +78,7 @@ class MassDistribution:
                     self.jet_mass_bins[i].append(jet)
             i += 1
 
-    def max_particles_per_jet():
+    def max_particles_per_jet(self):
         max_particles_per_jet = []
         for jet_mass_bin in self.jet_mass_bins:
             array_lengths = []
@@ -88,7 +88,7 @@ class MassDistribution:
 
         return max_particles_per_jet
 
-    def pad_jet_arrays(num_particles):
+    def pad_jet_arrays(self, num_particles):
         self.padded_jet_arrays = []
         
         for mass_bin in self.jet_mass_bins:
