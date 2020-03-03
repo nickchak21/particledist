@@ -1,10 +1,31 @@
 #!/usr/bin/env python3
 
+# standard library imports
 from __future__ import absolute_import, division, print_function
-from time import process_time
-import energyflow as ef
+
+# standard numerical library imports
 import numpy as np
-import matplotlib.pyplot as plt
+
+# energyflow imports
+import energyflow as ef
+from energyflow.archs import PFN
+from energyflow.datasets import qg_jets
+from energyflow.utils import data_split, remap_pids, to_categorical
+
+# attempt to import sklearn
+try:
+    from sklearn.metrics import roc_auc_score, roc_curve
+except:
+    print('please install scikit-learn in order to make ROC curves')
+    roc_curve = False
+
+# attempt to import matplotlib
+try:
+    import matplotlib.pyplot as plt
+except:
+    print('please install matplotlib in order to make plots')
+    plt = False
+    
 
 def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
     X = np.concatenate([jet_array_1, jet_array_2])[:,:,:4]
