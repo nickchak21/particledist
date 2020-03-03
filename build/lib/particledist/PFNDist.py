@@ -12,7 +12,7 @@ class PFNDist:
 
     def generate_AUCs(self, train_size, test_size):
         AUC_scores = []
-        for i in range(padded_jet_arrays.length - 1):
+        for i in range(self.padded_jet_arrays.length - 1):
             auc = PFN_AUC_calculation(self.padded_jet_arrays[i], self.padded_jet_arrays[i+1],
                                       train_size, test_size)
             AUC_scores.append(auc)

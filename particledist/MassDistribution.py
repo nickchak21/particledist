@@ -47,7 +47,6 @@ class MassDistribution:
                 remove_indices.append(i)
             i += 1
         
-        
         for index in sorted(remove_indices, reverse=True):
             del index_bins[index]
             
