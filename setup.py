@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     
 setuptools.setup(
     name='particledist',
-    version='1.0.6',
+    version='1.0.7',
     author='Nick Chakraborty',
     author_email='nc165@duke.edu',
     description='Automate the search for new particles in event mass distributions',
