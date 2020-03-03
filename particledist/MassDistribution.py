@@ -17,7 +17,7 @@ class MassDistribution:
         max_mass = max(self.mass_list)
         min_mass = min(self.mass_list)
         previous_mass = min_mass
-        for current_mass in range(min_mass + mass_bin_size, max_mass, mass_bin_size):
+        for current_mass in np.arange(min_mass + mass_bin_size, max_mass, mass_bin_size):
             mass_ranges.append([previous_mass, current_mass])
             previous_mass = current_mass
 
@@ -46,13 +46,15 @@ class MassDistribution:
             if len(mass_bin) < cutoff_jets:
                 remove_indices.append(i)
             i += 1
-
-        for index in remove_indices:
-            p = index_bins.pop(index)
-
-        for mass_range in self.mass_ranges:
-            p = mass_range.pop(index)
         
+        
+        for index in sorted(remove_indices, reverse=True):
+            del index_bins[index]
+            
+        for index in sorted(remove_indices, reverse=True):
+            del self.mass_ranges[index]
+
+            
         #Create bins with event mass and particles
             
         self.event_mass_bins = []
@@ -101,10 +103,4 @@ class MassDistribution:
                         except IndexError:
                             jet_array[i,j,k] = 0
             self.padded_jet_arrays.append(jet_array)
-        
-
-        
-                
-
-                
-        
+            
