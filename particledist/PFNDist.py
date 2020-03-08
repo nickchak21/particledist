@@ -32,10 +32,8 @@ def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
     y = np.concatenate([np.ones(len(jet_array_1)), np.zeros(len(jet_array_2))])
 
     ################################### SETTINGS ###################################
-    # the commented values correspond to those in 1810.05165
-    ###############################################################################
 
-    # data controls, can go up to 2000000 for full dataset
+    # data controls
     train, val, test = train_size, X.shape[0]-train_size-test_size, test_size
     use_pids = True
 
