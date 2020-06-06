@@ -3,6 +3,7 @@ setup.py
 particledist/MassDistribution.py
 particledist/PFNDist.py
 particledist/ParticleDistributionCMS.py
+particledist/ParticleDistributionCMSEfficient.py
 particledist/SignalInjectionTwoGluons.py
 particledist/__init__.py
 particledist.egg-info/PKG-INFO

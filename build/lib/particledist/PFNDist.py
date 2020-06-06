@@ -12,6 +12,10 @@ from energyflow.archs import PFN
 from energyflow.datasets import qg_jets
 from energyflow.utils import data_split, remap_pids, to_categorical
 
+# import libraries to supress output
+from contextlib import contextmanager
+import sys, os
+
 # attempt to import sklearn
 try:
     from sklearn.metrics import roc_auc_score, roc_curve
@@ -26,7 +30,16 @@ except:
     print('please install matplotlib in order to make plots')
     plt = False
     
-
+@contextmanager
+def suppress_stdout():
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        sys.stdout = devnull
+        try:  
+            yield
+        finally:
+            sys.stdout = old_stdout
+            
 def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
     X = np.concatenate([jet_array_1, jet_array_2])[:,:,:4]
     y = np.concatenate([np.ones(len(jet_array_1)), np.zeros(len(jet_array_2))])
@@ -49,8 +62,6 @@ def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
     # convert labels to categorical
     Y = to_categorical(y, num_classes=2)
 
-    print('Loaded quark and gluon jets')
-
     # preprocess by centering jets and normalizing pts
     for x in X:
         mask = x[:,0] > 0
@@ -64,31 +75,28 @@ def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
     else:
         X = X[:,:,:3]
 
-    print('Finished preprocessing')
-
     # do train/val/test split 
     (X_train, X_val, X_test,
      Y_train, Y_val, Y_test) = data_split(X, Y, val=val, test=test)
 
-    print('Done train/val/test split')
-    print('Model summary:')
-
     # build architecture
-    pfn = PFN(input_dim=X.shape[-1], Phi_sizes=Phi_sizes, F_sizes=F_sizes)
+    pfn = 0
+    with suppress_stdout():
+        pfn = PFN(input_dim=X.shape[-1], Phi_sizes=Phi_sizes, F_sizes=F_sizes)
 
     # train model
     pfn.fit(X_train, Y_train,
               epochs=num_epoch,
               batch_size=batch_size,
               validation_data=(X_val, Y_val),
-              verbose=1)
+              verbose=0)
 
     # get predictions on test data
     preds = pfn.predict(X_test, batch_size=1000)
 
     # get area under the ROC curve
     auc = roc_auc_score(Y_test[:,1], preds[:,1])
-
+    
     return auc
 
 
@@ -103,4 +111,6 @@ class PFNDist:
                                       train_size, test_size)
             AUC_scores.append(auc)
 
+        print(AUC_scores)
+        
         return AUC_scores

@@ -22,7 +22,12 @@ class ParticleDistributionCMS:
 
         i = 1
 
+        print("Starting event processing")
+        
         for evn_num in sim_numbers:
+            if i % 1000 == 0:
+                print("Working on event " + str(i))
+            
             self.event_list.append(np.asarray(sim.particles[sim.jets_i[:,sim.evn]==evn_num]))
             self.event_jet_labels.append(np.asarray(sim.hard_pids[sim.jets_i[:,sim.evn]==evn_num]))
             
@@ -31,14 +36,16 @@ class ParticleDistributionCMS:
             self.event_phis.append(np.asarray(sim.jet_phis[sim.jets_i[:,sim.evn]==evn_num]))
             self.event_ms.append(np.asarray(sim.jet_ms[sim.jets_i[:,sim.evn]==evn_num]))
 
-            if (i % 100000 == 0):
-                print(i + " events processed")
+            if i % 1000 == 0:
+                print(str(i) + " events processed")
 
             i += 1
 
         print()
         
         i = 1
+
+        print("Starting mass calculation")
         
         self.event_stats = []
 
@@ -55,8 +62,8 @@ class ParticleDistributionCMS:
         
                 self.event_stats[i].append(p4s.tolist())
 
-            if (i % 100000 == 0):
-                print(i + " event masses calculated")
+            if i % 1000 == 0:
+                print(str(i) + " event masses calculated")
                 
             i += 1
         

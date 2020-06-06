@@ -7,45 +7,56 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class ParticleDistributionCMS:
+class ParticleDistributionCMSEfficient:
     def __init__(self, sim):
-        sim_numbers = set(sim.evns)
-        t1_start = process_time() 
-
-        self.event_list = []
-        self.event_jet_labels = []
-        
-        self.event_pts = []
-        self.event_etas = []
-        self.event_phis = []
-        self.event_ms = []
-
-        i = 1
+        t1_start = process_time()
 
         print("Starting event processing")
-        
-        for evn_num in sim_numbers:
-            if i % 1000 == 0:
-                print("Working on event " + str(i))
-            
-            self.event_list.append(np.asarray(sim.particles[sim.jets_i[:,sim.evn]==evn_num]))
-            self.event_jet_labels.append(np.asarray(sim.hard_pids[sim.jets_i[:,sim.evn]==evn_num]))
-            
-            self.event_pts.append(np.asarray(sim.jet_pts[sim.jets_i[:,sim.evn]==evn_num]))
-            self.event_etas.append(np.asarray(sim.jet_etas[sim.jets_i[:,sim.evn]==evn_num]))
-            self.event_phis.append(np.asarray(sim.jet_phis[sim.jets_i[:,sim.evn]==evn_num]))
-            self.event_ms.append(np.asarray(sim.jet_ms[sim.jets_i[:,sim.evn]==evn_num]))
 
-            if i % 1000 == 0:
-                print(str(i) + " events processed")
+        event_list = {}
+        event_jet_labels = {}
+        
+        event_pts = {}
+        event_etas = {}
+        event_phis = {}
+        event_ms = {}
+
+        i = 0
+        
+        for jet in sim.particles:
+            evn_num = sim.evns[i]
+
+            if evn_num in event_list:
+                event_list[evn_num].append(jet)
+                event_jet_labels[evn_num].append(sim.hard_pids[i])
+                event_pts[evn_num].append(sim.jet_pts[i])
+                event_etas[evn_num].append(sim.jet_etas[i])
+                event_phis[evn_num].append(sim.jet_phis[i])
+                event_ms[evn_num].append(sim.jet_ms[i])
+
+            else:
+                event_list[evn_num] = [jet]
+                event_jet_labels[evn_num] = [sim.hard_pids[i]]
+                event_pts[evn_num] = [sim.jet_pts[i]]
+                event_etas[evn_num] = [sim.jet_etas[i]]
+                event_phis[evn_num] = [sim.jet_phis[i]]
+                event_ms[evn_num] = [sim.jet_ms[i]]
 
             i += 1
+        
+        self.event_list = list(event_list.values())
+        self.event_jet_labels = list(event_jet_labels.values())
+        
+        self.event_pts = list(event_pts.values())
+        self.event_etas = list(event_etas.values())
+        self.event_phis = list(event_phis.values())
+        self.event_ms = list(event_ms.values())
 
-        print()
+        print("Event processing finished")
+
+        print("Starting 4-vector conversion")
         
         i = 1
-
-        print("Starting mass calculation")
         
         self.event_stats = []
 
@@ -62,14 +73,13 @@ class ParticleDistributionCMS:
         
                 self.event_stats[i].append(p4s.tolist())
 
-            if i % 1000 == 0:
-                print(str(i) + " event masses calculated")
-                
             i += 1
         
         t1_stop = process_time()
 
-        print("Elapsed time during the whole program in seconds:", t1_stop-t1_start)
+        print("4-vector conversion finished")
+
+        print("Elapsed time during event and 4-vector parsing in seconds:", t1_stop-t1_start)
 
 
     def max_jets_in_event(self):
