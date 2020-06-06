@@ -12,16 +12,9 @@ Even if you have the normal canon of data analysis and machine learning tools in
 `h5py` - used to open MOD H5 files, which is how our data is stored <br/>
 `POT` - a High Energy Physics package that contains some important functions <br/>
 
-If all of these requirements are satisfied, try installation with `pip install --user particledist`. If there are missing packages, the error returned should tell you which package and what version you need to install. I have run into issues with `cython` and `tensorflow 1` in the past
+If all of these requirements are satisfied, try installation with `pip install --user particledist`. If there are missing packages, the error returned should tell you which package and what version you need to install. I have run into issues with `cython` and `tensorflow 1` in the past -- just for reference.
 
-. This will install the package and its dependencies without any issues.
-
-If you don't have the canon of tools installed, you may have to install some of them yourself. Namely, you will get errors 'numpy',
-        'matplotlib',
-        'scikit-learn',
-        'energyflow',
-        'h5py',
-        'POT'
+If you don't have the canon of tools installed, you will have to install the 5 packages yourself. Although `particledist` will 
 
 
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary:
