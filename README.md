@@ -19,6 +19,7 @@ If you don't have the canon of tools installed, you will have to install the 5 r
 
 
 
+
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary:
 
 A specified number of CMS Open Data simulation jets are loaded (in the boilerplate 
