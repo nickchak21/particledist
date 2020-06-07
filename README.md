@@ -17,7 +17,7 @@ If all of these requirements are satisfied, try installation with `pip install -
 If you don't have the canon of tools installed, you will have to install the 5 required packages first before running `pip install --user particledist`. Although the pip installer will likely fill the rest of the dependencies by itself, sometimes it fails. Again, look at the error message to see which package and what version you need to install.
 
 
-**
+
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary:
 
 A specified number of CMS Open Data simulation jets are loaded (in the boilerplate 
