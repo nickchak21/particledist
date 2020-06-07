@@ -2,7 +2,6 @@
 
 This is a package that uses deep learning to analyze event mass distributions and find new particles. Once you follow the installation instructions below, you can use the starter code provided to replicate our analysis. You can also change some of the hyperparameters to investigate how the model optimizes.
 
-<br/>
 **Installation Instructions**
 
 Even if you have the normal canon of data analysis and machine learning tools installed (`numpy`, `scipy`, `tensorflow1`, etc.), there are still a few packages that `particledist` requires. You should check to make sure you have the following before attempting installation:
@@ -18,6 +17,7 @@ If all of these requirements are satisfied, try installation with `pip install -
 If you don't have the canon of tools installed, you will have to install the 5 required packages first before running `pip install --user particledist`. Although the pip installer will likely fill the rest of the dependencies by itself, sometimes it fails. Again, look at the error message to see which package and what version you need to install.
 
 <br/>
+
 **How the Analysis Works**
 
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary.
@@ -27,6 +27,7 @@ A specified number of CMS Open Data simulation jets are loaded (in the starter c
 Ordinarily, the Particle Flow Network classifies with an AUC of 0.5 (no better than chance). However, if the AUC ever fluctuates from 0.5, we know that there is some form of new or unexpected physics.
 
 <br/>
+
 **What the Starter Code Does**
 
 The starter code is a Jupyter Notebooks (.ipynb) file. It will take 50 samples of 50,000 events and try and classify them with the above method. Since there is just normal physics present, the code will output a mean of about 0.5 across bins 1-2, 2-3, 3-4, and 4-5. 
@@ -38,6 +39,7 @@ You will be able to change the number of samples taken and the number of events 
 We did not include our signal injection code with the starter code because it's a bit more messy (our analysis package doesn't support signal injection, so we have to do it manually). If you would like to replicate our analysis in that area, send us a query to us over Microsoft CMT (to maintain anonymity).
 
 <br/>
+
 **What's Inside this Repository**
 
 This repository includes the particledist package code, for any people that are curious as to how the analysis package we built functions. We tried to comment as much as we could so you could see the inner workings of our code.
