@@ -46,4 +46,4 @@ The code will also output another number for each pair of bins -- this is the un
 
 You will be able to change the number of samples taken and the number of events per sample if you want to try and optimize our model. Keep in mind that to run the starter code, it takes about 2-3 hours on 4 NVIDIA GPUs (it's not the model that is hard to train; rather, it's the fact that we have to train the Particle Flow Network 200 times).
 
-We did not include our signal injection code with the starter code because it's a bit more messy (our analysis package doesn't support signal injection, so we have to do it manually). If you would like to replicate our analysis in that area, send us a query to us over Microsoft CMT (to maintain anonymity).
+We did not include our signal injection code with the starter code because it's a bit more messy (our analysis package doesn't support signal injection yet, so we have to do it manually). If you would like to replicate our analysis in that area, send us a query to us over Microsoft CMT (to maintain anonymity).
