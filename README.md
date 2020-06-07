@@ -20,6 +20,6 @@ If you don't have the canon of tools installed, you will have to install the 5 r
 
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary.
 
-A specified number of CMS Open Data simulation jets are loaded (in the starter code, this amounts to about 3,000,000 jets). These jets are sorted by event. Then, 50,000 events are selected at random and graphed on a histogram with bins 660 - 760, 760 - 860, 860 - 960, 960 - 1060, 1060 - 1160.
+A specified number of CMS Open Data simulation jets are loaded (in the starter code, this amounts to about 3,000,000 jets). These jets are sorted by event, and only 2-jet events are retained (this leaves us with about 500,000 events). Then, 50,000 events are selected at random and graphed on a histogram with bins 660 - 760, 760 - 860, 860 - 960, 960 - 1060, 1060 - 1160 GeV. A Particle Flow Network (deep learning architecture) 
 
 
