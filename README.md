@@ -1,6 +1,6 @@
 # particledist
 
-This is a package that uses deep learning to analyze event mass distributions and find new particles. Once you follow the installation instructions below, you can use the boilerplate code provided to replicate our analysis. You can also change some of the hyperparameters to investigate how the model optimizes.
+This is a package that uses deep learning to analyze event mass distributions and find new particles. Once you follow the installation instructions below, you can use the starter code provided to replicate our analysis. You can also change some of the hyperparameters to investigate how the model optimizes.
 
 **Installation Instructions**
 
@@ -16,8 +16,10 @@ If all of these requirements are satisfied, try installation with `pip install -
 
 If you don't have the canon of tools installed, you will have to install the 5 required packages first before running `pip install --user particledist`. Although the pip installer will likely fill the rest of the dependencies by itself, sometimes it fails. Again, look at the error message to see which package and what version you need to install.
 
+**How the Analysis Works**
+
+More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary.
+
+A specified number of CMS Open Data simulation jets are loaded (in the starter code, this amounts to about 3,000,000 jets). These jets are sorted by event. Then, 50,000 events are selected at random and graphed on a histogram with bins 660 - 760 GeV, 760 - 860 GeV, 860 - 960 GeV, 960 - 1060 GeV, 1060 - 1160 GeV.
 
 
-More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary:
-
-A specified number of CMS Open Data simulation jets are loaded (in the boilerplate 
