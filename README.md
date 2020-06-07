@@ -26,6 +26,20 @@ Ordinarily, the Particle Flow Network classifies with an AUC of 0.5 (no better t
 
 **What the Starter Code Does**
 
-The starter code works on the default, normal physics. It will take 50 samples of 50,000 jets and try and classify them with the above method. Since there is no normal physics, the code will output a mean of about 0.5 across bins 1-2, 2-3, 3-4, and 4-5. 
+The starter code is a Jupyter Notebooks (.ipynb) file. It will take 50 samples of 50,000 events and try and classify them with the above method. Since there is just normal physics present, the code will output a mean of about 0.5 across bins 1-2, 2-3, 3-4, and 4-5. 
+
+The code will also output another number for each pair of bins -- this is the uncertainty in AUC. This is so that when we perform signal injection (we used 2-gluon events), we know how many events it will take before our method has 3-sigma and 5-sigma confidence that there is new physics.
+
+You will be able to change the number of samples taken and the number of events per sample if you want to try and optimize our model. Keep in mind that to run the starter code, it takes about 2-3 hours on 4 NVIDIA GPUs (it's not the model that is hard to train; rather, it's the fact that we have to train the Particle Flow Network 200 times).
+
+We did not include our signal injection code with the starter code because it's a bit more messy (our analysis package doesn't support signal injection, so we have to do it manually). If you would like to replicate our analysis in that area, send us a query to us over Microsoft CMT (to maintain anonymity).
+
+**What's Inside this Repository**
+
+This repository includes the particledist package code, for any people that are curious as to how the analysis package we built functions. We tried to comment as much as we could so you could see the inner workings of our code.
+
+It also has the starter code for using our particledist package (instructions above).
+
+
 
 
