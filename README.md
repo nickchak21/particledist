@@ -4,6 +4,14 @@ This is a package that uses deep learning to analyze event mass distributions an
 
 <br/>
 
+**What's Inside this Repository**
+
+This repository includes the particledist package code, for any people that are curious as to how the analysis package we built functions. We tried to comment as much as we could so you could see the inner workings of our code.
+
+It also has the starter code for using our particledist package and replicating our analysis (instructions below).
+
+<br/>
+
 **Installation Instructions**
 
 Even if you have the normal canon of data analysis and machine learning tools installed (`numpy`, `scipy`, `tensorflow1`, etc.), there are still a few packages that `particledist` requires. You should check to make sure you have the following before attempting installation:
@@ -39,15 +47,3 @@ The code will also output another number for each pair of bins -- this is the un
 You will be able to change the number of samples taken and the number of events per sample if you want to try and optimize our model. Keep in mind that to run the starter code, it takes about 2-3 hours on 4 NVIDIA GPUs (it's not the model that is hard to train; rather, it's the fact that we have to train the Particle Flow Network 200 times).
 
 We did not include our signal injection code with the starter code because it's a bit more messy (our analysis package doesn't support signal injection, so we have to do it manually). If you would like to replicate our analysis in that area, send us a query to us over Microsoft CMT (to maintain anonymity).
-
-<br/>
-
-**What's Inside this Repository**
-
-This repository includes the particledist package code, for any people that are curious as to how the analysis package we built functions. We tried to comment as much as we could so you could see the inner workings of our code.
-
-It also has the starter code for using our particledist package (instructions above).
-
-
-
-
