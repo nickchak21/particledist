@@ -2,6 +2,8 @@
 
 This is a package that uses deep learning to analyze event mass distributions and find new particles. Once you follow the installation instructions below, you can use the starter code provided to replicate our analysis. You can also change some of the hyperparameters to investigate how the model optimizes.
 
+<br/>
+
 **Installation Instructions**
 
 Even if you have the normal canon of data analysis and machine learning tools installed (`numpy`, `scipy`, `tensorflow1`, etc.), there are still a few packages that `particledist` requires. You should check to make sure you have the following before attempting installation:
