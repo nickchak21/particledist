@@ -4,7 +4,7 @@ This is a package that uses deep learning to analyze event mass distributions an
 
 **Installation Instructions**
 
-Even if you have the normal canon of data analysis and machine learning tools installed (`numpy`, `scipy`, `tensorflow 1`, etc.), there are still a few packages that `particledist` requires: you should check to make sure you have them before attempting installation:
+Even if you have the normal canon of data analysis and machine learning tools installed (`numpy`, `scipy`, `tensorflow1`, etc.), there are still a few packages that `particledist` requires: you should check to make sure you have them before attempting installation:
 
 `matplotlib` - for making plots <br/>
 `scikit-learn` - for calculating AUC scores <br/>
@@ -12,9 +12,11 @@ Even if you have the normal canon of data analysis and machine learning tools in
 `h5py` - used to open MOD H5 files, which is how our data is stored <br/>
 `POT` - a High Energy Physics package that contains some important functions <br/>
 
-If all of these requirements are satisfied, try installation with `pip install --user particledist`. If there are missing packages, the error returned should tell you which package and what version you need to install. I have run into issues with `cython` and `tensorflow 1` in the past -- just for reference.
+If all of these requirements are satisfied, try installation with `pip install --user particledist`. If there are missing packages, the error returned should tell you which package and what version you need to install. I have run into issues with `cython` and `tensorflow1` in the past -- just for reference.
 
-If you don't have the canon of tools installed, you will have to install the 5 packages yourself. Although `particledist` will 
+If you don't have the canon of tools installed, you will have to install the 5 required packages first before running `pip install --user particledist`. Although the pip installer will likely fill the rest of the dependencies by itself, sometimes it fails. Again, look at the error message to see which package and what version you need to install.
+
+
 
 
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary:
