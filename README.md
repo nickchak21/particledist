@@ -8,7 +8,7 @@ This is the analysis package we built. It uses deep learning to analyze event ma
 
 This repository includes the particledist package code, for any people that are curious as to how the analysis package functions. The code is inside the `particledist` folder.
 
-It also has the starter code for using our particledist package and replicating our analysis (instructions below).
+This repo also has the starter code for using our particledist package and replicating our analysis (instructions below).
 
 <br/>
 
