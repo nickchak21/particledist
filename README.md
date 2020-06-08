@@ -40,7 +40,7 @@ Ordinarily, the Particle Flow Network classifies with an AUC of 0.5 (no better t
 
 **What the Starter Code Does**
 
-The starter code is a Jupyter Notebooks (`starter_code.ipynb`) file. It will take 50 samples of 50,000 events and try and classify them with the above method. Since there is just normal physics present, the code will output a mean of about 0.5 across bins 1-2, 2-3, 3-4, and 4-5. 
+The starter code is a Jupyter Notebook (`starter_code.ipynb`) file. It will take 50 samples of 50,000 events and try and classify them with the above method. Since there is just normal physics present, the code will output a mean of about 0.5 across bins 1-2, 2-3, 3-4, and 4-5. 
 
 The code will also output another number for each pair of bins -- this is the uncertainty in AUC. This is so that when we perform signal injection (we used 2-gluon events), we know how many events it will take before our method has 3-sigma and 5-sigma confidence that there is new physics.
 
