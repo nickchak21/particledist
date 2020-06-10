@@ -29,7 +29,9 @@ try:
 except:
     print('please install matplotlib in order to make plots')
     plt = False
+
     
+'''Suppress output by EnergyFlow package during the Particle Flow Network (PFN) creation and training''' 
 @contextmanager
 def suppress_stdout():
     with open(os.devnull, "w") as devnull:
@@ -39,8 +41,14 @@ def suppress_stdout():
             yield
         finally:
             sys.stdout = old_stdout
-            
+
 def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
+    '''Trains a PFN on two jet-particle data arrays coming from two consecutive bins. The PFN will then attempt to
+    classify testing jets as part of one bin or another.
+    @param: size of training set (train_size), size of testing set (test_size) -- these values must be standardized
+    to have a meaningful analysis
+    @return: AUC score obtained from trying trained model on test set (auc)'''            
+
     X = np.concatenate([jet_array_1, jet_array_2])[:,:,:4]
     y = np.concatenate([np.ones(len(jet_array_1)), np.zeros(len(jet_array_2))])
 
@@ -81,7 +89,7 @@ def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
 
     # build architecture
     pfn = 0
-    with suppress_stdout():
+    with suppress_stdout(): #suppress output of creating model
         pfn = PFN(input_dim=X.shape[-1], Phi_sizes=Phi_sizes, F_sizes=F_sizes)
 
     # train model
@@ -99,12 +107,30 @@ def PFN_AUC_calculation(jet_array_1, jet_array_2, train_size, test_size):
     
     return auc
 
+'''Parameters: the padded jet arrays from the sample event mass distribution
+
+This class applies the PFN across consecutive bins in a mass distribution, generating an AUC score for each pair
+of bins.
+
+@param = parameters
+@instance = new instance variables created
+@return = values returned'''
 
 class PFNDist:
     def __init__(self, padded_jet_arrays):
+    '''Initializes the PFNDist object
+    @param: list of padded jet arrays from event mass distribution (padded_jet_arrays)
+    @instance: list of padded jet arrays (self.padded_jet_arrays)'''
+    
         self.padded_jet_arrays = padded_jet_arrays
 
     def generate_AUCs(self, train_size, test_size):
+    '''Generate list of AUCs by running PFN on consecutive mass bins in event mass distribution
+    @param: amount of jets to train on (train_size), amount of jets to test on (test_size) -- these values must
+    be standardized to have a meaningful analysis
+    @instance: none
+    @return: list of AUC scores generated across each onsecutive pair of bins (AUC_scores)'''
+    
         AUC_scores = []
         for i in range(len(self.padded_jet_arrays) - 1):
             auc = PFN_AUC_calculation(self.padded_jet_arrays[i], self.padded_jet_arrays[i+1],

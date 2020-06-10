@@ -6,6 +6,8 @@ import energyflow as ef
 import numpy as np
 import matplotlib.pyplot as plt
 
+'''This class is deprecated, and it will be removed in the future. Use ParticleDistributionCMSEfficient
+instead; it has the same functionality and runs much faster.'''
 
 class ParticleDistributionCMS:
     def __init__(self, sim):

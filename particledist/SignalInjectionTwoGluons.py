@@ -7,6 +7,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import MassDistribution
 
+'''This is the start of the SignalInjectionTwoGluons class. It will inject a signal of the size you
+choose into the bin you choose on an event mass distribution. Unfortunately, the class is not yet
+functional, but it will be soon.
+
+We performed our signal injection manually. If you want to see that code, send us a query through
+Microsoft CMT to maintain anonymity.'''
+
 class SignalInjectionTwoGluons:
     def __init__(self, mass_list, event_jet_labels, event_list, mass_bin_size):
         self.mass_list = mass_list
