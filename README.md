@@ -36,7 +36,7 @@ More details on the exact technique used can be found in our NeurIPS submission 
 
 A specified number of CMS Open Data simulation jets are loaded (in the starter code, this amounts to about `3,000,000` jets). These jets are sorted by event, and only 2-jet events are retained (this leaves us with about `500,000` events). Then, a specified number of events (`50,000`, `70,000`, and `100,000` for our analysis) are selected at random and graphed on a histogram with bins `660 - 760`, `760 - 860`, `860 - 960`, `960 - 1060`, `1060 - 1160 GeV`. The Particle Flow Network (PFN) is applied on consecutive bins, with the goal of classifying jets as part of one bin or another.
 
-Ordinarily, the PFN classifies between event mass bins with an mean AUC of `0.5` (no better than chance). However, if the AUC ever fluctuates from `0.5`, we know that there is some form of new or unexpected physics.
+Ordinarily, the PFN classifies between event mass bins with an mean AUC of `0.5` (no better than chance). However, if the AUC ever fluctuates from `0.5`, we know that there is some form of new or unexpected physics in some of the bins.
 
 <br/>
 
