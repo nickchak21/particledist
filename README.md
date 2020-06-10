@@ -24,7 +24,7 @@ Even if you have the normal canon of data analysis and machine learning tools in
 `h5py` - used to open MOD H5 files, which is how our data is stored <br/>
 `POT` - a High Energy Physics package that contains some important functions <br/>
 
-If all of these requirements are satisfied, try installation with `pip install --user particledist`. If you are missing packages, the error message should tell you which package and what version you need to install. We have run into issues with `cython` and `tensorflow1` in the past -- just for reference. Once the package finishes installing, check that the version is 1.1.2 -- this is the latest version.
+If all of these requirements are satisfied, try installation with `pip install --user particledist`. If you are missing packages, the error message should tell you which package and what version you need to install. We have run into issues with `cython` and `tensorflow1` in the past -- just for reference. Once the package finishes installing, check that the version is `1.1.2` -- this is the latest version.
 
 If you don't have the canon of tools installed, you will have to install the 5 required packages first before running `pip install --user particledist`. Although the pip installer will likely fill the rest of the dependencies by itself, sometimes it fails. Again, look at the error message to see which package and what version you need to install.
 
