@@ -10,7 +10,7 @@ This package is mainly built on top of the EnergyFlow package (arXiv:1810.05165v
 
 This repository includes the particledist package code, for any people that are curious as to how our analysis package functions. The code is inside the `particledist` folder. All the working methods are fully commented, so you can get an idea of what's going on behind the scenes.
 
-This repo also has some starter code for using our package and replicating our analysis (instructions below, after installation instructions).
+This repo also has some starter code for using our package (`starter_code.ipynb`) and replicating our analysis (instructions below, after installation instructions).
 
 <br/>
 
