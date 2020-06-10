@@ -8,7 +8,7 @@ This package is mainly built on top of the EnergyFlow package (arXiv:1810.05165v
 
 **What's Inside this Repository**
 
-This repository includes the particledist package code, for any people that are curious as to how our analysis package functions. The code is inside the `particledist` folder. All the working methods are fully commented, so you can really get an idea of what's going on behind the scenes.
+This repository includes the particledist package code, for any people that are curious as to how our analysis package functions. The code is inside the `particledist` folder. All the working methods are fully commented, so you can get an idea of what's going on behind the scenes.
 
 This repo also has the starter code for using our package and replicating our analysis (instructions below, after installation instructions).
 
