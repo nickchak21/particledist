@@ -1,6 +1,6 @@
 # particledist
 
-particledist is the analysis package we built. It uses deep learning to analyze event mass distributions and find new signals/physics. Once you follow the installation instructions below, you can use the starter code provided to replicate our analysis. You can also change some of the hyperparameters to investigate how the model optimizes.
+`particledist` is the analysis package we built. It uses deep learning to analyze event mass distributions and find new signals/physics. Once you follow the installation instructions below, you can use the starter code provided to replicate our analysis. You can also change some of the hyperparameters to investigate how the model optimizes.
 
 This package is mainly built on top of the EnergyFlow package (arXiv:1810.05165v2). EnergyFlow contains the base deep learning architecture we are using (the Particle Flow Network), as well as tools to load jet/event data and calculate invariant event masses. Our method makes use of these tools, but applies them in different ways than originally intended to find new physics.
 
