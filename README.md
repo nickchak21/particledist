@@ -44,7 +44,7 @@ Ordinarily, the PFN classifies between event mass bins with an mean AUC of `0.5`
 
 The starter code is a Jupyter Notebook (`starter_code.ipynb`) file. Ignore the output in the Jupyter Notebook -- yours will look different. We updated the library since we last ran the full analysis code.
 
-The notebook will take `50` samples of `50,000`, `70,000`, and `100,000` events and try and classify them with the above method. Since there is just normal physics present, the code will output an AUC mean of about `0.5` for bins `1-2`, `2-3`, `3-4`, and `4-5`. 
+The notebook will take `50` samples of `50,000`, `70,000`, and `100,000` events and try and classify them with the above method. Since there is just normal physics present, the code will output an AUC mean of about `0.5` for each pair of consecutive bins. 
 
 The code will also output another number for each pair of bins -- this is the uncertainty in AUC. This is so that when we perform signal injection (we injected 2-gluon events), we know how many events it will take before our method has 3-sigma and 5-sigma confidence that there is new physics.
 
