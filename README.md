@@ -34,9 +34,9 @@ If you don't have the canon of tools installed, you will have to install the 5 r
 
 More details on the exact technique used can be found in our NeurIPS submission paper, but below is a quick summary.
 
-A specified number of CMS Open Data simulation jets are loaded (in the starter code, this amounts to about 3,000,000 jets). These jets are sorted by event, and only 2-jet events are retained (this leaves us with about 500,000 events). Then, 50,000 events are selected at random and graphed on a histogram with bins `660 - 760`, `760 - 860`, `860 - 960`, `960 - 1060`, `1060 - 1160 GeV`. The Particle Flow Network (PFN) is applied on consecutive bins, with the goal of classifying jets as part of one bin or another.
+A specified number of CMS Open Data simulation jets are loaded (in the starter code, this amounts to about `3,000,000` jets). These jets are sorted by event, and only 2-jet events are retained (this leaves us with about `500,000` events). Then, `50,000` events are selected at random and graphed on a histogram with bins `660 - 760`, `760 - 860`, `860 - 960`, `960 - 1060`, `1060 - 1160 GeV`. The Particle Flow Network (PFN) is applied on consecutive bins, with the goal of classifying jets as part of one bin or another.
 
-Ordinarily, the PFN classifies between event mass bins with an mean AUC of 0.5 (no better than chance). However, if the AUC ever fluctuates from 0.5, we know that there is some form of new or unexpected physics.
+Ordinarily, the PFN classifies between event mass bins with an mean AUC of `0.5` (no better than chance). However, if the AUC ever fluctuates from `0.5`, we know that there is some form of new or unexpected physics.
 
 <br/>
 
@@ -44,7 +44,7 @@ Ordinarily, the PFN classifies between event mass bins with an mean AUC of 0.5 (
 
 The starter code is a Jupyter Notebook (`starter_code.ipynb`) file. Ignore the output in the Jupyter Notebook -- yours will look different. We updated the library since we last ran the full analysis code.
 
-The notebook will take 50 samples of 50,000 events and try and classify them with the above method. Since there is just normal physics present, the code will output an AUC mean of about 0.5 for bins 1-2, 2-3, 3-4, and 4-5. 
+The notebook will take `50` samples of `50,000` events and try and classify them with the above method. Since there is just normal physics present, the code will output an AUC mean of about `0.5` for bins `1-2`, `2-3`, `3-4`, and `4-5`. 
 
 The code will also output another number for each pair of bins -- this is the uncertainty in AUC. This is so that when we perform signal injection (we injected 2-gluon events), we know how many events it will take before our method has 3-sigma and 5-sigma confidence that there is new physics.
 
